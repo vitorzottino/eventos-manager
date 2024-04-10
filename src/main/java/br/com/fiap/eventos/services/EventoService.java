@@ -10,37 +10,36 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class EventoService
-{
+public class EventoService {
     @Autowired
     private EventoRepository repository;
 
     @Transactional(readOnly = true)
-    public List<Evento> findAll(){
+    public List<Evento> findAll() {
         return repository.findAll();
     }
 
     @Transactional
-    public Evento insert(Evento evento){
+    public Evento insert(Evento evento) {
         return repository.save(evento);
     }
 
     @Transactional
-    public Evento findById(Long id){
-        Evento evento = repository.findById(id).orElseThrow(
+    public Evento findById(Long id) {
+        return repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("Recurso inválido - " + id)
         );
-        return evento;
+
     }
 
     @Transactional
-    public Evento update(Long id, Evento entity){
-        try{
+    public Evento update(Long id, Evento entity) {
+        try {
             Evento evento = repository.getReferenceById(id);
-            copyToEvento (entity, evento);
+            copyToEvento(entity, evento);
             evento = repository.save(evento);
             return evento;
-        }catch (EntityNotFoundException e){
+        } catch (EntityNotFoundException e) {
             throw new IllegalArgumentException("Recurso não encontrado");
         }
     }
@@ -53,13 +52,13 @@ public class EventoService
     }
 
     @Transactional
-    public void delete(Long id){
-        if(!repository.existsById(id)){
+    public void delete(Long id) {
+        if (!repository.existsById(id)) {
             throw new IllegalArgumentException(("Produto inválido - id: " + id));
         }
-        try{
+        try {
             repository.deleteById(id);
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException("Produto inválido - id: " + id);
         }
     }

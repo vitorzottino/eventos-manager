@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 //Aluno: Vitor Cassemiro Zottino - RM 93360
 
 @SpringBootApplication
-@ComponentScan(basePackages = "br.com.fiap.eventos")
 public class EventosApplication {
 
 	public static void main(String[] args) {

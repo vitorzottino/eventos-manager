@@ -74,4 +74,11 @@ public class EventoController
         service.delete(id);
         return "redirect:/eventos";
     }
+
+    @GetMapping()
+    public String findAll(Model model){
+        List<Evento> eventos = service.findAll();
+        model.addAttribute("eventos", eventos);
+        return "/evento/listar-eventos";
+    }
 }
