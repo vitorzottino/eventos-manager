@@ -1,9 +1,9 @@
-INSERT INTO tb_cidade(nome) VALUES('São Paulo');
-INSERT INTO tb_cidade(nome) VALUES('Rio de Janeiro');
-INSERT INTO tb_cidade(nome) VALUES('Belo Horizonte');
-INSERT INTO tb_cidade(nome) VALUES('Salvador');
-INSERT INTO tb_cidade(nome) VALUES('Santa Catarina');
-INSERT INTO tb_cidade(nome) VALUES('Blumenau');
+INSERT INTO tb_cidade(nome, estado) VALUES('São Paulo', 'SP');
+INSERT INTO tb_cidade(nome, estado) VALUES('Rio de Janeiro', 'RJ');
+INSERT INTO tb_cidade(nome, estado) VALUES('Belo Horizonte', 'MG');
+INSERT INTO tb_cidade(nome, estado) VALUES('Salvador', 'BA');
+INSERT INTO tb_cidade(nome, estado) VALUES('Floripa', 'SC');
+INSERT INTO tb_cidade(nome, estado) VALUES('Blumenau', 'SC');
 
 INSERT INTO tb_evento(nome, data, url, cidade_id) VALUES('Só Track Boa', '14/06/2024', 'https://www.sotrackboa.com.br/', 5);
 INSERT INTO tb_evento(nome, data, url, cidade_id) VALUES('Rock In Rio', '21/06/2024', 'https://rockinrio.com/rio/pt-br/home/', 1);

@@ -28,10 +28,10 @@ public class CidadeService
 
     @Transactional(readOnly = true)
     public Cidade findById(Long id){
-        Cidade cidade = repository.findById(id).orElseThrow(
+        return repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("Recurso inválido - " + id)
         );
-        return cidade;
+
     }
 
     @Transactional
@@ -49,6 +49,7 @@ public class CidadeService
 
     private void copyToCidade(Cidade entity, Cidade cidade){
         cidade.setNome(entity.getNome());
+        cidade.setEstado(entity.getEstado());
     }
 
     @Transactional

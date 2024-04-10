@@ -10,6 +10,6 @@ public class HomeController {
     @RequestMapping("/")
     public String index(Model model){
         model.addAttribute("msg", "Bem-vindo(a) à Bilheteria Online");
-        return "/evento/index";
+        return "/index";
     }
 }

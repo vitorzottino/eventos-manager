@@ -8,7 +8,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//Cidade - Categoria
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,8 +17,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_cidade")
-public class Cidade
-{
+public class Cidade {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +28,7 @@ public class Cidade
     private String nome;
 
     @NotBlank(message = "Campo requerido")
-    @Size(min = 3, message = "O estado deve ter no mínimo 3 caracteres")
+    @Size(min = 2, max = 2, message = "O estado deve ter 2 caracteres")
     private String estado;
 
     //Relacionamento
