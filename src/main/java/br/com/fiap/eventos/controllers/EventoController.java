@@ -37,7 +37,6 @@ public class EventoController
     }
 
     @PostMapping()
-    @Transactional
     public String insert(@Valid Evento evento,
                          BindingResult result,
                          RedirectAttributes attributes){
@@ -50,11 +49,10 @@ public class EventoController
     }
 
     @GetMapping("/{id}")
-    @Transactional(readOnly = true)
     public String findById(@PathVariable("id") Long id, Model model){
         Evento evento = service.findById(id);
         model.addAttribute("evento", evento);
-        return "/evento/editar-produto";
+        return "/evento/editar-evento";
     }
 
     @PutMapping("/{id}")

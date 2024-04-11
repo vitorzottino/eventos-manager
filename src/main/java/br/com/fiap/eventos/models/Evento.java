@@ -1,6 +1,6 @@
 package br.com.fiap.eventos.models;
 
-//Evento - Produto
+
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"nome", "data", "url"})
+@EqualsAndHashCode(exclude = {"nome", "data", "url", "cidade"})
 @Entity
 @Table(name = "tb_evento")
 public class Evento
@@ -36,6 +36,6 @@ public class Evento
 
     //Relacionamento
     @ManyToOne
-    @JoinColumn(name = "cidade_id", nullable = false)//PK
+    @JoinColumn(name = "cidade_id", nullable = false)
     private Cidade cidade;
 }

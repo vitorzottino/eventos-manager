@@ -24,7 +24,7 @@ public class EventoService {
         return repository.save(evento);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public Evento findById(Long id) {
         return repository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("Recurso inválido - " + id)
@@ -54,12 +54,12 @@ public class EventoService {
     @Transactional
     public void delete(Long id) {
         if (!repository.existsById(id)) {
-            throw new IllegalArgumentException(("Produto inválido - id: " + id));
+            throw new IllegalArgumentException(("Evento inválido - id: " + id));
         }
         try {
             repository.deleteById(id);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Produto inválido - id: " + id);
+            throw new IllegalArgumentException("Evento inválido - id: " + id);
         }
     }
 }

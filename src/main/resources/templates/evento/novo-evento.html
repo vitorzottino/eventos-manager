@@ -43,29 +43,36 @@
                         </div>
                     </div>
 
-                        <div class="row mb-3">
-                            <label class="col-sm-1 col-form-label" for="url">URL:</label>
-                            <div class="col-sm-2">
-                                <input class="form-control" id="url" th:field="*{url}" type="text">
-                            </div>
-                            <div class="col-sm-5">
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="url">URL:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" id="url" th:field="*{url}" type="text">
+                        </div>
+                        <div class="col-sm-5">
 								<span class="mensagem" th:errors="*{url}"
                                       th:if="${#fields.hasErrors('url')}"></span>
-                            </div>
                         </div>
+                    </div>
                     <div class="row mt-4">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="cidade">Cidade:</label>
                             </div>
-                            <select class="custom-select ms-4">
-                                <option th:field{cidade}  value="cidade.id" id="cidade" th:each="cidade : ${cidades}" th:text="${cidade.nome}"></option>
-                            </select>
-
+                            <div class="col-sm-5">
+                                <select class="chosen-select form-control" th:field*{cidade} id="cidade" name="cidade">
+                                    <option th:each="cidade : ${cidades}"
+                                            th:value="${cidade.id}"
+                                            th:text="${cidade.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                        <span class="mensagem" th:errors="*{cidade}"
+                              th:if="${#fields.hasErrors('cidade')}"></span>
                         </div>
                     </div>
 
-                        <input class="btn btn-primary" type="submit" value="Salvar"/>
+                    <input class="btn btn-primary" type="submit" value="Salvar"/>
                 </form>
 
 

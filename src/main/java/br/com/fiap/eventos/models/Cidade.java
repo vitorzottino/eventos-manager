@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = ("nome"))
+@EqualsAndHashCode(exclude = {"nome", "estado"})
 
 @Entity
 @Table(name = "tb_cidade")
